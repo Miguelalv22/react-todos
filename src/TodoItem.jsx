@@ -8,9 +8,11 @@ import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import CommentIcon from '@mui/icons-material/Comment';
 
-export default function TodoItem({ todo, removeTodo }) {
+export default function TodoItem({ todo, removeTodo, toggleTodo }) {
     const labelId = `checkbox-list-label-${todo.id}`;
-
+    const toggle = () => {
+        toggleTodo(todo.id)
+    }
     return (
 
         <ListItem
@@ -28,6 +30,7 @@ export default function TodoItem({ todo, removeTodo }) {
                         checked={todo.completed}
                         tabIndex={-1}
                         disableRipple
+                        onChange={toggle}
                     // inputProps={{ 'aria-labelledby': labelId }}
                     />
                 </ListItemIcon>
